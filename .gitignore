@@ -1,0 +1,7 @@
+*.swp
+*.swo
+
+/install
+/src
+/distfiles
+/enter.bash

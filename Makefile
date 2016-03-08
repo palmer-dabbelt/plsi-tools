@@ -22,7 +22,7 @@ enter.bash:
 ###############################################################################
 install/bin/units: src/units/units
 	mkdir -p $(dir $@)
-	cp -a --reflink=auto $^ $(dir $@)
+	$(MAKE) -C $(dir $^) install
 
 src/units/units: src/units/Makefile
 	$(MAKE) -C $(dir $@) $(notdir $@)

@@ -6,6 +6,7 @@ PYTHON3_VERSION=3.4.3
 
 ALL += install/bin/units
 ALL += install/bin/python3
+ALL += install/lib/python3.4/site-packages/parse.py
 ALL += enter.bash
 
 .PHONY: all
@@ -65,3 +66,9 @@ src/python3/configure: distfiles/python3-$(PYTHON3_VERSION).tar.gz
 distfiles/python3-$(PYTHON3_VERSION).tar.gz:
 	mkdir -p $(dir $@)
 	wget https://www.python.org/ftp/python/$(PYTHON3_VERSION)/Python-$(PYTHON3_VERSION).tgz -O $@
+
+###############################################################################
+# Python "parse" package
+###############################################################################
+install/lib/python3.4/site-packages/parse.py: install/bin/python3
+	./install/bin/pip3 install parse
